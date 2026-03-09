@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/shared/ContactCTA.astro';
+import { CONTACT } from '../data/contact';
+---
+
+<BaseLayout
+  title="Moonable - Premium Aluminum Railings & Custom Kayaks"
+  description="Moonable offers code-compliant aluminum railing installation and custom rotomolded kayaks. Get a free quote today."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": CONTACT.businessName,
+      "url": "https://moonable.ca",
+      "email": CONTACT.email,
+      "telephone": CONTACT.phone,
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Ontario",
+        "addressCountry": "CA"
+      },
+      "areaServed": CONTACT.serviceArea,
+      "description": "Premium aluminum railing installation and custom kayak sales."
+    })} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <section class="relative pt-16 pb-24 lg:pt-32 lg:pb-40 overflow-hidden bg-surface">
+    <!-- Extremely subtle, large radial background like the reference -->
+    <div class="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-[radial-gradient(circle_at_center,_var(--color-primary)_0%,_transparent_60%)] opacity-[0.03] blur-3xl rounded-full pointer-events-none"></div>
+    
+    <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+      
+      <!-- Left: Text Content -->
+      <div class="flex flex-col items-start z-10 text-left">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-badge-bg mb-8">
+          <span class="text-xs font-bold tracking-wider text-badge-text uppercase">Premium Quality Delivered</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold text-text-main mb-8 leading-[1.1] tracking-tight">
+          Enhance Your Home With Seamless
+          <span class="text-primary block mt-2">Safety & Style</span>
+        </h1>
+        
+        <p class="text-lg lg:text-xl text-text-muted max-w-lg mb-12 font-medium leading-relaxed">
+          One Provider. Endless Possibilities. Professional-grade aluminum railings and rotomolded custom kayaks built for endurance and aesthetic perfection.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
+          <a href="/railing" class="w-full sm:w-auto bg-primary hover:bg-primary-hover text-white font-bold text-lg px-9 py-4 rounded-full transition-all shadow-xl shadow-primary/30 hover:-translate-y-1 hover:shadow-2xl text-center">
+            Get Started
+          </a>
+          <a href="/kayak" class="w-full sm:w-auto bg-white border border-border hover:border-primary text-text-main hover:text-primary font-bold text-lg px-9 py-4 rounded-full transition-all shadow-sm hover:shadow-md text-center">
+            View Kayaks
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Main Visual Element (Big Blue Circle + Floating Cards) -->
+      <div class="relative w-full aspect-square max-w-lg lg:max-w-xl mx-auto lg:ml-auto z-10">
+        <!-- The big blue circular shape -->
+        <div class="absolute inset-4 lg:inset-0 bg-primary rounded-full overflow-hidden shadow-2xl flex items-center justify-center">
+           <!-- Placeholder for an actual photo. We'll use an elegant abstract wave pattern for now to match the modern vibe -->
+           <svg class="w-full h-full text-white/10" viewBox="0 0 100 100" preserveAspectRatio="none">
+             <path fill="currentColor" d="M0,100 C20,60 40,80 60,40 C80,0 100,20 100,20 L100,100 Z"/>
+             <path fill="currentColor" d="M0,100 C30,70 50,90 70,50 C90,10 100,30 100,30 L100,100 Z" opacity="0.5"/>
+           </svg>
+        </div>
+        
+        <!-- Floating Glassmorphism Card 1 (Top Left) -->
+        <div class="absolute top-1/4 -left-6 lg:-left-12 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/40 min-w-[180px] animate-[float_4s_ease-in-out_infinite]">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-8 h-8 rounded-full bg-green/20 flex items-center justify-center">
+              <svg class="w-4 h-4 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <span class="font-bold text-text-main text-sm">OBC Compliant</span>
+          </div>
+          <div class="w-full bg-surface rounded-full h-1.5 mt-3">
+            <div class="bg-primary h-1.5 rounded-full" style="width: 100%"></div>
+          </div>
+        </div>
+
+        <!-- Floating Glassmorphism Card 2 (Bottom Right) -->
+        <div class="absolute bottom-1/4 -right-4 lg:-right-8 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/40 max-w-[240px] animate-[float_5s_ease-in-out_infinite_0.5s]">
+          <div class="flex items-center justify-between mb-3 border-b border-border pb-3">
+             <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-md bg-badge-bg text-primary flex items-center justify-center font-bold text-xs">M</div>
+                <div class="text-xs font-bold text-text-main">Custom Kayaks</div>
+             </div>
+             <div class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">100%</div>
+          </div>
+          <ul class="text-xs text-text-muted space-y-2 mt-2 font-medium">
+             <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary"></div> Custom color design</li>
+             <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-primary"></div> Local manufacturing</li>
+          </ul>
+          <a href="/kayak" class="mt-4 block w-full text-center bg-primary hover:bg-primary-hover text-white py-2 rounded-full text-xs font-bold transition-colors">Start Customizing</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Offerings Section (Re-styled based on the design) -->
+  <section class="py-24 lg:py-32 bg-white" id="offerings">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-20 flex flex-col items-center">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-badge-bg mb-6">
+          <span class="text-xs font-bold tracking-wider text-badge-text uppercase">Our Offerings</span>
+        </div>
+        <h2 class="text-4xl lg:text-5xl font-extrabold text-text-main tracking-tight max-w-3xl leading-[1.2]">
+          Revolutionizing Railing Installation And Custom Kayaks
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Railing Card -->
+        <a href="/railing" class="group block p-1 bg-gradient-to-br from-border to-transparent rounded-[2rem] hover:from-primary/30 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
+          <div class="h-full bg-white rounded-[1.8rem] p-10 lg:p-14">
+            <div class="w-16 h-16 bg-badge-bg rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+              <svg class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="text-3xl font-extrabold text-text-main mb-4 group-hover:text-primary transition-colors">Aluminum Railings</h3>
+            <p class="text-text-muted text-lg mb-8 leading-relaxed font-medium">
+              Transform your outdoor space with premium, code-compliant aluminum railings. Engineered for safety and designed to elevate your property's aesthetics.
+            </p>
+            <span class="inline-flex items-center gap-2 text-primary font-bold text-lg group-hover:gap-4 transition-all">
+              Explore Projects
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Kayak Card -->
+        <a href="/kayak" class="group block p-1 bg-gradient-to-br from-border to-transparent rounded-[2rem] hover:from-primary/30 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
+          <div class="h-full bg-white rounded-[1.8rem] p-10 lg:p-14">
+            <div class="w-16 h-16 bg-badge-bg rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+              <svg class="w-8 h-8 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-3xl font-extrabold text-text-main mb-4 group-hover:text-primary transition-colors">Custom Kayaks</h3>
+            <p class="text-text-muted text-lg mb-8 leading-relaxed font-medium">
+              Take command of the water with a kayak that's uniquely yours. Select your hull and deck colors in our interactive 3D studio before placing your order.
+            </p>
+            <span class="inline-flex items-center gap-2 text-primary font-bold text-lg group-hover:gap-4 transition-all">
+              Design Yours Now
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <ContactCTA />
+
+  <style is:global>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</BaseLayout>

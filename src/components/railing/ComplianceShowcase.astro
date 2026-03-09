@@ -1,0 +1,60 @@
+---
+const specs = [
+  { label: 'Railing Height', value: '42"', note: 'minimum for residential decks & porches' },
+  { label: 'Baluster Spacing', value: '4"', note: 'maximum gap between balusters' },
+  { label: 'Handrail Graspable', value: '1.25"–2"', note: 'diameter for comfortable grip' },
+  { label: 'Load Resistance', value: '200 lbs', note: 'concentrated load at top rail' },
+];
+---
+
+<section class="py-16 lg:py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 bg-green/10 text-green text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Ontario Building Code Compliant
+      </div>
+      <h2 class="text-3xl lg:text-4xl font-bold text-navy">Built to Code, Every Time</h2>
+      <p class="mt-3 text-lg text-text-muted max-w-2xl mx-auto">
+        Every installation meets or exceeds Ontario Building Code (OBC) requirements.
+        We don't cut corners on safety.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <!-- Annotated Photo Placeholder -->
+      <div class="relative rounded-2xl overflow-hidden bg-navy-light aspect-[4/3] flex items-center justify-center">
+        <div class="text-center text-white/60 p-8">
+          <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <p class="text-sm">Annotated compliance photo<br/>(42" height, 4" spacing marked)</p>
+        </div>
+        <!-- Dimension annotations overlay -->
+        <div class="absolute left-4 top-1/4 bg-green text-white text-xs font-bold px-2 py-1 rounded">
+          42" Height
+        </div>
+        <div class="absolute right-4 top-1/2 bg-green text-white text-xs font-bold px-2 py-1 rounded">
+          4" Spacing
+        </div>
+      </div>
+
+      <!-- Specs Grid -->
+      <div class="space-y-4">
+        {specs.map((spec) => (
+          <div class="bg-white rounded-xl p-5 flex items-start gap-4">
+            <div class="w-16 h-16 bg-navy/5 rounded-lg flex items-center justify-center shrink-0">
+              <span class="text-2xl font-bold text-navy">{spec.value}</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-navy">{spec.label}</h3>
+              <p class="text-sm text-text-muted mt-0.5">{spec.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

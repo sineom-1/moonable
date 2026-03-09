@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/shared/HeroSection.astro';
+import SectionHeading from '../components/shared/SectionHeading.astro';
+import ContactCTA from '../components/shared/ContactCTA.astro';
+import KayakColorCustomizer from '../components/kayak/KayakColorCustomizer.vue';
+import { CONTACT } from '../data/contact';
+---
+
+<BaseLayout
+  title="Custom Kayaks - Design Your Color Combination | Moonable"
+  description="Design your custom kayak with our online color customizer. Choose from 8 colors for deck and hull. Rotomolded kayaks made to order in Canada."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Custom Rotomolded Kayak",
+      "brand": { "@type": "Brand", "name": CONTACT.businessName },
+      "description": "Custom color rotomolded kayak with your choice of deck and hull colors.",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/PreOrder",
+        "priceCurrency": "CAD",
+        "seller": { "@type": "Organization", "name": CONTACT.businessName }
+      }
+    })} />
+  </Fragment>
+
+  <HeroSection
+    badge="Interactive Studio"
+    title="Design Your Dream Kayak"
+    subtitle="Take control of the water with a kayak that reflects your style. Mix and match hull and deck colors in our interactive 3D studio before placing your order."
+  >
+    <a href="#customizer" class="w-full sm:w-auto bg-primary hover:bg-primary-hover text-white font-bold text-lg px-9 py-4 rounded-full transition-all shadow-xl shadow-primary/30 hover:-translate-y-1 hover:shadow-2xl text-center">
+      Start Customizing
+    </a>
+  </HeroSection>
+
+  <!-- Color Customizer -->
+  <section class="py-24 lg:py-32 bg-white" id="customizer">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <SectionHeading
+        title="Interactive Kayak Builder"
+        subtitle="Choose two colors for your kayak — one for the deck (top) and one for the hull (bottom). See your design come to life in real time."
+      />
+      <KayakColorCustomizer client:visible />
+    </div>
+  </section>
+
+  <!-- How to Order -->
+  <section class="py-24 lg:py-32 bg-surface">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <SectionHeading
+        title="How to Order"
+        subtitle="Simple steps from design to delivery."
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-border">
+          <div class="w-16 h-16 bg-badge-bg text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black">
+            1
+          </div>
+          <h3 class="font-bold text-text-main text-xl mb-3">Choose Colors</h3>
+          <p class="text-text-muted font-medium">Use our customizer above to pick your perfect color combination.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-border">
+          <div class="w-16 h-16 bg-badge-bg text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black">
+            2
+          </div>
+          <h3 class="font-bold text-text-main text-xl mb-3">Contact Us</h3>
+          <p class="text-text-muted font-medium">Reach out via phone or email with your final color selection.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-border">
+          <div class="w-16 h-16 bg-badge-bg text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black">
+            3
+          </div>
+          <h3 class="font-bold text-text-main text-xl mb-3">Confirm & Pay</h3>
+          <p class="text-text-muted font-medium">We'll send a formal contract with pricing and delivery timeline.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-border">
+          <div class="w-16 h-16 bg-badge-bg text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black">
+            4
+          </div>
+          <h3 class="font-bold text-text-main text-xl mb-3">Receive Kayak</h3>
+          <p class="text-text-muted font-medium">Standard delivery in ~6 months. Rush delivery available in 2-3 months.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Info -->
+  <section class="py-24 lg:py-32 bg-white">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <SectionHeading title="Pricing & Delivery Options" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-surface rounded-3xl p-10 border border-border">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-xs font-bold tracking-wider text-text-main mb-6 border border-border shadow-sm">
+            Standard
+          </div>
+          <h3 class="font-extrabold text-text-main mb-6 text-2xl">Standard Production</h3>
+          <ul class="space-y-4 text-text-muted font-medium">
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-badge-bg flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg></div>
+              Base kayak at standard pricing
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-badge-bg flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg></div>
+              Custom color choices available
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-badge-bg flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg></div>
+              Delivery in approximately 6 months
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-badge-bg flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg></div>
+              Full prepayment required to confirm order
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-primary rounded-3xl p-10 relative shadow-xl shadow-primary/20 text-white transform md:-translate-y-4">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-badge-text text-white text-xs font-bold tracking-wider mb-6 shadow-sm">
+            Fast Track
+          </div>
+          <h3 class="font-extrabold mb-6 text-2xl">Rush Production</h3>
+          <ul class="space-y-4 text-white/90 font-medium">
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg></div>
+              Expedited delivery in 2-3 months
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg></div>
+              Rush fee applied to base pricing
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg></div>
+              Subject to production availability
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-12 text-center text-text-muted font-medium">
+        Contact us for detailed pricing and custom color quotes. All prices are in Canadian Dollars (CAD).
+      </p>
+    </div>
+  </section>
+
+  <ContactCTA
+    headline="Ready to Order Your Kayak?"
+    description="Get in touch to discuss color options, pricing, and delivery timelines."
+  />
+</BaseLayout>

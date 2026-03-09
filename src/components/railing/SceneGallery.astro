@@ -1,0 +1,104 @@
+---
+interface Project {
+  id: string;
+  data: {
+    title: string;
+    scene: string;
+    description?: string;
+    images: { src: string; alt: string }[];
+  };
+}
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+
+const scenes = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'front-door', label: 'Front Door' },
+  { id: 'staircase', label: 'Staircase' },
+  { id: 'deck-patio', label: 'Deck & Patio' },
+  { id: 'cement', label: 'Cement Area' },
+];
+---
+
+<section class="py-16 lg:py-24 bg-white" id="gallery">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl lg:text-4xl font-bold text-navy">Our Projects</h2>
+      <p class="mt-3 text-lg text-text-muted max-w-2xl mx-auto">
+        Browse our installations by scene type. Find a project similar to yours.
+      </p>
+    </div>
+
+    <!-- Scene Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-10" role="tablist">
+      {scenes.map((scene, i) => (
+        <button
+          role="tab"
+          data-scene={scene.id}
+          class:list={[
+            'px-4 py-2 rounded-full text-sm font-medium transition-colors scene-tab',
+            i === 0 ? 'bg-navy text-white' : 'bg-surface text-text-muted hover:bg-navy/10',
+          ]}
+        >
+          {scene.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Project Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="project-grid">
+      {projects.map((project) => (
+        <div class="project-card rounded-2xl overflow-hidden bg-surface group" data-scene={project.data.scene}>
+          <div class="aspect-[4/3] bg-navy-light relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center text-white/40">
+              <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-navy">{project.data.title}</h3>
+            {project.data.description && (
+              <p class="text-sm text-text-muted mt-1 line-clamp-2">{project.data.description}</p>
+            )}
+            <span class="inline-block mt-2 text-xs font-medium text-sky bg-sky/10 px-2 py-0.5 rounded-full capitalize">
+              {project.data.scene.replace('-', ' ')}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.scene-tab');
+    const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const scene = tab.dataset.scene;
+
+        tabs.forEach((t) => {
+          t.classList.remove('bg-navy', 'text-white');
+          t.classList.add('bg-surface', 'text-text-muted');
+        });
+        tab.classList.remove('bg-surface', 'text-text-muted');
+        tab.classList.add('bg-navy', 'text-white');
+
+        cards.forEach((card) => {
+          if (scene === 'all' || card.dataset.scene === scene) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

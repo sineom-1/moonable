@@ -1,0 +1,62 @@
+---
+import { NAV_LINKS } from '../../data/navigation';
+import MobileNav from './MobileNav.vue';
+import { CONTACT } from '../../data/contact';
+---
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm border-b border-white">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Left: Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center gap-2.5 text-primary font-bold text-2xl tracking-tight">
+          <!-- A placeholder logo matching the blue geometric icon in reference -->
+          <div class="relative w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+             <div class="absolute inset-0 bg-primary opacity-20 transform rotate-12 rounded-xl"></div>
+             <svg class="w-6 h-6 text-primary relative z-10" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13H5.5L12 6.5z"/>
+             </svg>
+          </div>
+          <span class="text-text-main">Moonable</span>
+        </a>
+      </div>
+
+      <!-- Center: Navigation Links -->
+      <nav class="hidden lg:flex flex-1 justify-center" aria-label="Main navigation">
+        <div class="flex items-center gap-2">
+          {NAV_LINKS.map((link) => (
+            <a
+              href={link.href}
+              class="px-5 py-2 text-text-main font-semibold hover:bg-badge-bg hover:text-primary rounded-full transition-all duration-200"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      <!-- Right: Actions (Phone Link & Get a Quote button replacing Login/Signup) -->
+      <div class="hidden lg:flex items-center gap-4 flex-shrink-0">
+        <a
+          href={`tel:${CONTACT.phone}`}
+          class="font-semibold text-text-main hover:text-primary transition-colors px-4 py-2"
+        >
+          {CONTACT.phone}
+        </a>
+        <a
+          href="/contact"
+          class="bg-primary hover:bg-primary-hover text-white font-semibold px-7 py-3 rounded-full transition-all shadow-md shadow-primary/20 hover:shadow-lg hover:-translate-y-0.5"
+        >
+          Get a Quote
+        </a>
+      </div>
+
+      <!-- Mobile Nav Toggle -->
+      <div class="lg:hidden flex items-center gap-4">
+        <MobileNav client:load />
+      </div>
+      
+    </div>
+  </div>
+</header>
