@@ -65,7 +65,7 @@
       />
 
       <!-- Labels -->
-      <text x="300" y="55" text-anchor="middle" font-size="12" font-family="system-ui" fill="#1e3a5f" font-weight="600">
+      <text x="300" y="55" text-anchor="middle" font-size="12" font-family="system-ui" fill="#0C7BB3" font-weight="600">
         3/4 VIEW
       </text>
     </svg>

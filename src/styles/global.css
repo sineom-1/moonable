@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors upgraded to an outdoor premium carbon/slate aesthetic to match the kayak */
-  --color-primary: #18181b; /* Zinc 900 - sleek near black */
-  --color-primary-hover: #27272a; /* Zinc 800 */
-  --color-badge-bg: #f4f4f5; /* Zinc 100 */
-  --color-badge-text: #52525b; /* Zinc 600 */
-  
-  --color-text-main: #09090b; /* Zinc 950 for bold dark text */
-  --color-text-muted: #71717a; /* Zinc 500 for body paragraphs */
-  
-  --color-surface: #f8fafc; /* Keep off-white/very light slate for depth */
-  --color-border: #e4e4e7; /* Zinc 200 */
+  /* Brand Colors — ocean blue-to-teal palette matching the Moonable logo */
+  --color-primary: #0C7BB3;
+  --color-primary-hover: #0A6090;
+  --color-accent: #2CB8C4;
+  --color-badge-bg: #E6F3F8;
+  --color-badge-text: #3A7A90;
 
-  /* Legacy colors kept for compatibility with other pages if any */
-  --color-navy: #1e3a5f;
-  --color-sky: #4a90d9;
+  --color-text-main: #0A1A2E;
+  --color-text-muted: #5A7A8A;
+
+  --color-surface: #F2F8FB;
+  --color-border: #D0E2EA;
+
+  --color-navy: #0C7BB3;
+  --color-sky: #2CB8C4;
   --color-orange: #e8722a;
   --color-red: #D52B1E;
   --color-green: #2a9d4e;
