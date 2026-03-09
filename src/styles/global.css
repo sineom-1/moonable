@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors matching the new SaaS design */
-  --color-primary: #1155cc; /* Deep vibrant blue */
-  --color-primary-hover: #0e44a3;
-  --color-badge-bg: #eaf2ff; /* Very light blue for badge background */
-  --color-badge-text: #ef4444; /* Pinkish-red for badge text */
+  /* Brand Colors upgraded to an outdoor premium carbon/slate aesthetic to match the kayak */
+  --color-primary: #18181b; /* Zinc 900 - sleek near black */
+  --color-primary-hover: #27272a; /* Zinc 800 */
+  --color-badge-bg: #f4f4f5; /* Zinc 100 */
+  --color-badge-text: #52525b; /* Zinc 600 */
   
-  --color-text-main: #0f172a; /* Slate 900 for bold dark text */
-  --color-text-muted: #475569; /* Slate 600 for body paragraphs */
+  --color-text-main: #09090b; /* Zinc 950 for bold dark text */
+  --color-text-muted: #71717a; /* Zinc 500 for body paragraphs */
   
-  --color-surface: #f8fafc;
-  --color-border: #e2e8f0;
+  --color-surface: #f8fafc; /* Keep off-white/very light slate for depth */
+  --color-border: #e4e4e7; /* Zinc 200 */
 
   /* Legacy colors kept for compatibility with other pages if any */
   --color-navy: #1e3a5f;
